@@ -1,0 +1,1 @@
+50 small projects in 50 days. Most of these I build to have as a template for future projects.
