@@ -1,0 +1,1 @@
+Feedback widget using event bubbling to handle events.
