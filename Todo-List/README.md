@@ -1,1 +1,1 @@
-Todo list app that saves to local storage. Link to [live project](https://dibble-clock.netlify.app/)!
+Todo list app that saves to local storage. Link to [live project](https://dibble-todos.netlify.app/)!
