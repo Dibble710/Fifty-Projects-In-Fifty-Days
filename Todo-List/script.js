@@ -30,26 +30,34 @@ function addTodo(todo) {
 
     todoEl.innerText = todoText;
 
-    todoEl.addEventListener("click", () => {
-      todoEl.classList.toggle("completed");
-      updateLocalStorage();
-    });
-    // Long press el to delete
-    var pressTimer;
-    $(todoEl)
-      .mouseup(function () {
-        clearTimeout(pressTimer);
-        // Clear timeout
-        return false;
-      })
-      .mousedown(function () {
-        // Set timeout
-        pressTimer = window.setTimeout(function () {
+    var touchtime = 0;
+    $(todoEl).on("click", function () {
+      if (touchtime == 0) {
+        // set first click
+        touchtime = new Date().getTime();
+      } else {
+        // compare first click to this click and see if they occurred within double click threshold
+        if (new Date().getTime() - touchtime < 500) {
+          // double click occurred
           todoEl.remove();
           updateLocalStorage();
-        }, 500);
-        return false;
-      });
+          touchtime = 0;
+        } else {
+          // not a double click so set as a new first click
+          touchtime = new Date().getTime();
+        }
+      }
+    });
+
+    todoEl.addEventListener("click", () => {
+      todoEl.classList.toggle("completed");
+      updateLocalStorage()
+    });
+    // todoEl.addEventListener("dblclick", (e) => {
+    //   e.preventDefault();
+    //   todoEl.remove();
+    //   updateLocalStorage()
+    // });
 
     todosList.appendChild(todoEl);
 
@@ -74,20 +82,3 @@ function updateLocalStorage() {
   localStorage.setItem("todos", JSON.stringify(todos));
   todosLi.forEach((todoItem) => todoItem.innerText("div"));
 }
-
-var pressTimer;
-
-$(todoEl)
-  .mouseup(function () {
-    clearTimeout(pressTimer);
-    // Clear timeout
-    return false;
-  })
-  .mousedown(function () {
-    // Set timeout
-    pressTimer = window.setTimeout(function () {
-      todoEl.remove();
-      updateLocalStorage();
-    }, 1000);
-    return false;
-  });
