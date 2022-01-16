@@ -1,21 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Todo List</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>todos</h1>
     <form id="form">
-        <input type="text" class="input" id="input" placeholder="Enter your todo" autocomplete="off">
+      <input
+        type="text"
+        class="input"
+        id="input"
+        placeholder="Enter your todo"
+        autocomplete="off"
+      />
 
-        <ul class="todos" id="todos">
-        </ul>
+      <ul class="todos" id="todos"></ul>
     </form>
-    <small>Left click to toggle completed. <br /> Right click to delete todo. <br/> For mobile users, press and hold the todo to delete</small>
+    <small
+      >Left click to toggle completed. <br />
+      Press and hold the todo to delete</small
+    >
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
